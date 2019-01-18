@@ -19,6 +19,7 @@
 use std::sync::Arc;
 
 use ethcore::account_provider::AccountProvider;
+use ethereum_types::U256;
 use ethkey;
 use parity_runtime::Executor;
 use parking_lot::Mutex;
@@ -34,7 +35,7 @@ use v1::helpers::dispatch::{self, Dispatcher, WithToken, eth_data_hash};
 use v1::helpers::{errors, SignerService, SigningQueue, ConfirmationPayload, FilledTransactionRequest, Subscribers};
 use v1::metadata::Metadata;
 use v1::traits::Signer;
-use v1::types::{TransactionModification, ConfirmationRequest, ConfirmationResponse, ConfirmationResponseWithToken, U256, Bytes};
+use v1::types::{TransactionModification, ConfirmationRequest, ConfirmationResponse, ConfirmationResponseWithToken, Bytes};
 
 /// Transactions confirmation (personal) rpc implementation.
 pub struct SignerClient<D: Dispatcher> {

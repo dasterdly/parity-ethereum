@@ -15,10 +15,10 @@
 // along with Parity Ethereum.  If not, see <http://www.gnu.org/licenses/>.
 
 use std::collections::BTreeMap;
-use ethereum_types::{U256, Address};
+use ethereum_types::{H160, U256, Address};
 use parking_lot::{Mutex, RwLock};
 use v1::helpers::{ConfirmationRequest, ConfirmationPayload, oneshot, errors};
-use v1::types::{ConfirmationResponse, H160 as RpcH160, Origin};
+use v1::types::{ConfirmationResponse, Origin};
 
 use jsonrpc_core::Error;
 
@@ -31,8 +31,8 @@ pub enum DefaultAccount {
 	Provided(Address),
 }
 
-impl From<RpcH160> for DefaultAccount {
-	fn from(address: RpcH160) -> Self {
+impl From<H160> for DefaultAccount {
+	fn from(address: H160) -> Self {
 		DefaultAccount::Provided(address.into())
 	}
 }

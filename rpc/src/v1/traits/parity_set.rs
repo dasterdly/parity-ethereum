@@ -16,9 +16,10 @@
 
 //! Parity-specific rpc interface for operations altering the settings.
 
+use ethereum_types::{H160, H256, U256};
 use jsonrpc_core::{BoxFuture, Result};
 
-use v1::types::{Bytes, H160, H256, U256, ReleaseInfo, Transaction};
+use v1::types::{Bytes, ReleaseInfo, Transaction};
 
 build_rpc_trait! {
 	/// Parity-specific rpc interface for operations altering the settings.

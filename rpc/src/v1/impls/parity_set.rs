@@ -21,6 +21,7 @@ use std::time::Duration;
 
 use ethcore::client::{BlockChainClient, Mode};
 use ethcore::miner::MinerService;
+use ethereum_types::{H160, H256, U256};
 use sync::ManageNetwork;
 use fetch::{self, Fetch};
 use hash::keccak_buffer;
@@ -30,7 +31,7 @@ use jsonrpc_core::{BoxFuture, Result};
 use jsonrpc_core::futures::Future;
 use v1::helpers::errors;
 use v1::traits::ParitySet;
-use v1::types::{Bytes, H160, H256, U256, ReleaseInfo, Transaction};
+use v1::types::{Bytes, ReleaseInfo, Transaction};
 
 /// Parity-specific rpc interface for operations altering the settings.
 pub struct ParitySetClient<C, M, U, F = fetch::Client> {

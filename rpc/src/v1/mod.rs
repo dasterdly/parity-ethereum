@@ -51,5 +51,5 @@ pub use self::extractors::{RpcExtractor, WsExtractor, WsStats, WsDispatcher};
 /// Signer utilities
 pub mod signer {
 	pub use super::helpers::{SigningQueue, SignerService, ConfirmationsQueue};
-	pub use super::types::{ConfirmationRequest, TransactionModification, U256, TransactionCondition};
+	pub use super::types::{ConfirmationRequest, TransactionModification, TransactionCondition};
 }

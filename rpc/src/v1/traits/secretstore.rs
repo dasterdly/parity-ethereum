@@ -18,9 +18,10 @@
 
 use std::collections::BTreeSet;
 use jsonrpc_core::Result;
+use ethereum_types::{H160, H256, H512};
 use ethkey::Password;
 
-use v1::types::{H160, H256, H512, Bytes, EncryptedDocumentKey};
+use v1::types::{Bytes, EncryptedDocumentKey};
 
 build_rpc_trait! {
 	/// Parity-specific rpc interface.

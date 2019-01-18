@@ -17,10 +17,10 @@
 //! Eth rpc interface.
 use jsonrpc_core::{Result, BoxFuture};
 use jsonrpc_macros::Trailing;
+use ethereum_types::{H64, H160, H256, U64, U256};
 
 use v1::types::{RichBlock, BlockNumber, Bytes, CallRequest, Filter, FilterChanges, Index, EthAccount};
 use v1::types::{Log, Receipt, SyncStatus, Transaction, Work};
-use v1::types::{H64, H160, H256, U256, U64};
 
 build_rpc_trait! {
 	/// Eth rpc interface.
@@ -31,7 +31,7 @@ build_rpc_trait! {
 		#[rpc(name = "eth_protocolVersion")]
 		fn protocol_version(&self) -> Result<String>;
 
-		/// Returns an object with data about the sync status or false. (wtf?)
+		/// Returns an object with data about the sync status or false.
 		#[rpc(name = "eth_syncing")]
 		fn syncing(&self) -> Result<SyncStatus>;
 

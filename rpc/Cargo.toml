@@ -46,6 +46,7 @@ ethcore-logger = { path = "../parity/logger" }
 ethcore-miner = { path = "../miner" }
 ethcore-private-tx = { path = "../ethcore/private-tx" }
 ethcore-sync = { path = "../ethcore/sync" }
+ethbloom = "0.5"
 ethereum-types = "0.4"
 
 ethjson = { path = "../json" }

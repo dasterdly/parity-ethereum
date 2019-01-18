@@ -45,7 +45,7 @@ use jsonrpc_core::futures::{future, Future, Poll, Async, IntoFuture};
 use jsonrpc_core::futures::future::Either;
 use v1::helpers::{errors, nonce, TransactionRequest, FilledTransactionRequest, ConfirmationPayload};
 use v1::types::{
-	H520 as RpcH520, Bytes as RpcBytes,
+	Bytes as RpcBytes,
 	RichRawTransaction as RpcRichRawTransaction,
 	ConfirmationPayload as RpcConfirmationPayload,
 	ConfirmationResponse,
@@ -757,7 +757,7 @@ pub fn execute<D: Dispatcher + 'static>(
 			if accounts.is_hardware_address(&address) {
 				let signature = accounts.sign_message_with_hardware(&address, &data)
 					.map(|s| H520(s.into_electrum()))
-					.map(RpcH520::from)
+					// .map(RpcH520::from)
 					.map(ConfirmationResponse::Signature)
 					// TODO: is this correct? I guess the `token` is the wallet in this context
 					.map(WithToken::No)
@@ -769,7 +769,6 @@ pub fn execute<D: Dispatcher + 'static>(
 			let res = signature(&accounts, address, hash, pass)
 				.map(|result| result
 					.map(|rsv| H520(rsv.into_electrum()))
-					.map(RpcH520::from)
 					.map(ConfirmationResponse::Signature)
 				);
 			Box::new(future::done(res))
@@ -782,7 +781,7 @@ pub fn execute<D: Dispatcher + 'static>(
 			let res = signature(&accounts, address, data, pass)
 				.map(|result| result
 					.map(|rsv| H520(rsv.into_electrum()))
-					.map(RpcH520::from)
+					// .map(RpcH520::from)
 					.map(ConfirmationResponse::Signature)
 				);
 			Box::new(future::done(res))

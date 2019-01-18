@@ -18,9 +18,10 @@
 use std::collections::BTreeMap;
 
 use jsonrpc_core::Result;
+use ethereum_types::{H160, H256, H520};
 use ethkey::Password;
 use ethstore::KeyFile;
-use v1::types::{H160, H256, H520, DeriveHash, DeriveHierarchical, ExtAccountInfo};
+use v1::types::{DeriveHash, DeriveHierarchical, ExtAccountInfo};
 
 build_rpc_trait! {
 	/// Personal Parity rpc interface.
