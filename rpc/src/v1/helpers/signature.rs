@@ -55,7 +55,7 @@ mod tests {
 	use super::*;
 	use std::sync::Arc;
 	use ethcore::account_provider::AccountProvider;
-	use ethereum_types::{H160, U64};
+	use ethereum_types::H160;
 
 	pub fn add_chain_replay_protection(v: u64, chain_id: Option<u64>) -> u64 {
 		v + if let Some(n) = chain_id { 35 + n * 2 } else { 0 }

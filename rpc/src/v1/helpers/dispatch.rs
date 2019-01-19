@@ -757,9 +757,7 @@ pub fn execute<D: Dispatcher + 'static>(
 			if accounts.is_hardware_address(&address) {
 				let signature = accounts.sign_message_with_hardware(&address, &data)
 					.map(|s| H520(s.into_electrum()))
-					// .map(RpcH520::from)
 					.map(ConfirmationResponse::Signature)
-					// TODO: is this correct? I guess the `token` is the wallet in this context
 					.map(WithToken::No)
 					.map_err(|e| errors::account("Error signing message with hardware_wallet", e));
 
