@@ -18,7 +18,7 @@
 
 use std::collections::BTreeMap;
 
-use ethereum_types::{H64, H160, H256, H512, U256};
+use ethereum_types::{H64, H160, H256, H512, U64, U256};
 use jsonrpc_core::{BoxFuture, Result};
 use jsonrpc_macros::Trailing;
 use v1::types::{
@@ -241,7 +241,7 @@ build_rpc_trait! {
 		/// Extracts Address and public key from signature using the r, s and v params. Equivalent to Solidity erecover
 		/// as well as checks the signature for chain replay protection
 		#[rpc(name = "parity_verifySignature")]
-		fn verify_signature(&self, bool, Bytes, H256, H256, u64) -> Result<RecoveredAccount>;
+		fn verify_signature(&self, bool, Bytes, H256, H256, U64) -> Result<RecoveredAccount>;
 
 		/// Returns logs matching given filter object.
 		/// Is allowed to skip filling transaction hash for faster query.
